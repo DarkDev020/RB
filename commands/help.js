@@ -1,123 +1,205 @@
-const Discord = require('discord.js');
-exports.run = (client, message, args, ops) => {
-let embed = new Discord.RichEmbed()
-.setThumbnail(message.author.avatarURL)
-.setTitle(':small_red_triangle:  Please Select One... :small_red_triangle:')
-.setDescription(`**The Current Prefix of the bot is !.
-ASSISTANCE
-1.help: Shows commands
+const Discord = require("discord.js");
 
-2.invite : Sends invite link
+const prefix = "!"
 
-3.id - gets users id
+let bot = new Discord.Client();
 
-MODERATION COMMANDS
-4.Ban: Bans a Player
+let client = new Discord.Client();
 
-5.Kick: Kicks a player
+module.exports.run = async (bot, message, args) => {
 
-6.mute: Speak as RB
+  if(message.author.bot) return;
 
-7.Purge: Deletes 1-100 messages, Example: !purge 5
+  message.reply(`Check you DM's :inbox_tray:`)
 
-8.warn: Vote on a problem or something. @here Vote [Text]
+var embed = new Discord.RichEmbed()
 
-9.tempmute: warns a user
+.setAuthor(` | Commands`, `${bot.user.avatarURL}`)
 
-10.tempban: Exactly how it sounds.
+.setTitle("Misc Commands")
 
-11.removerole
+.addField('say', '[Text]')
 
-12.unban- unbans a user: Example, !unban @grimreaper55death
+.addField('reverse','[Text]')
 
-13.addrole
+.setAuthor() .setTimestamp()
 
-FUN COMMANDS
-14.8ball: Magic 8Ball!
+message.author.send(embed)
 
-15.say: Mutes a user
 
-16.gay: Calculates a mentioned users gay percent.
 
-17.Ship: Ships two mentioned users and calculates their percentage.
+var embed = new Discord.RichEmbed()
 
-18.weather: shows weather for a state or city searched. Example: !weather San Fransisco 
+.setAuthor(` | Commands`, `${bot.user.avatarURL}`)
 
-19.Play: Plays MUsic but as few bugs still so not operationable
+.setColor("RANDOM")
 
-20.stop: Synced with music.
+.setTitle("Bot Owner/Devs")
 
-21.yomama
+.addField('restart', 'restarts bot')
 
-22.dadjoke
+message.author.send(embed)
 
-23.coinflip [Heads or Tails]
 
-23.rps Rock,paper,Scissors shoot!
 
-24.Avatar- Generates a user like avatar
+var embed = new Discord.RichEmbed()
 
-INFO COMMANDS/Misc
-25.report: Report stuff.
+.setAuthor(` | Commands`, `${bot.user.avatarURL}`)
 
-26.serverinfo
+.setTitle("NSFW!")
 
-27.statistics
+.setColor("RANDOM")
 
-28.bug
+.addField(`hentai`, `Sends a Hentai gif!`)
 
-29. Math
+.addField(`4k`, `Sends a 4k NSFW Photo!`)
 
-30.botinfo
+.addField(`fuck`, `Fuck Gif!`)
 
-31.findusers
+.addField(`ass`, `Sends a ass NSFW Photo!`)
 
-32.whois
+.addField('boobs', 'boobpic')
 
-33.findusers - !findusers [Their User]
+.addField('spank', '!spank @mentioneduser ')
 
-34.whois 
+.addField('anal', 'shows anal sex')
 
-35. Contact [text]
+.addField('Thigh', 'shows a pic of girls thighs')
 
-BOT OWNER ONLY
-36. Answer
+.addField('foxgirl', 'shows a foxgirl')
 
-37.restart
+.addField('porngif', 'Porngif is posted')
 
-Server Owner
-38.hackban
+.addField('bj', 'blowjob')
 
-__NSFW__
-39.hentaigif
+.addField('cum', 'exactly how it sounds.')
 
-40.porngif
-
-41.anal
-
-42.boobs
-
-43.fuck
-
-44.spank- also under girls nsfw
-
-45.ass
-
-46.bj
-
-47.cum
-
-48.thigh
-
-49.dick
-
-50.uniform
-
-INFO:
-Please join the support discord if you want to and feel free to ask question or report bugs.
-
-**`) 
-.setColor('RANDOM')
-.setFooter('ReaperBot || Reaper Dev Team', client.user.displayAvatarURL, true)
 .setTimestamp()
-message.channel.send(embed)}
+
+message.author.send(embed)
+
+
+
+var embed = new Discord.RichEmbed()
+
+.setAuthor(` | Commands`, `${bot.user.avatarURL}`)
+
+.setTitle("FUN COMMANDS")
+
+.setColor("RANDOM")
+
+.addField(`gay`, `@user`)
+
+.addField('8ball', 'magic 8ball')
+
+.addField('yomama', 'yomama joke')
+
+.addField('dadjoke', 'gets a dadjoke')
+
+.addField('hug', 'hug a user')
+
+.addField('memes', 'posts memes')
+
+.addField('rps', 'rps')
+
+.addField('ship @user @user')
+
+.addField('coinflip', 'flip a coin')
+
+.addField('avatar', 'generates avatar')
+
+message.author.send(embed)
+
+
+
+var embed = new Discord.RichEmbed()
+
+.setAuthor(` | Commands`, `${bot.user.avatarURL}`)
+
+.setTitle("HELPFUL COMMANDS")
+
+.setColor("RANDOM")
+
+.addField(`weather (location)`, `Sends weather infomation on the location!`)
+
+.addField(`servers`, `All servers Leafeon is in!`)
+
+.addField(`serverinfo`, `Server info about the server!`)
+
+.addField(`support (Problem)-W.I.P`, `Gets you a support ticket that gets sent to a staff channel for the staff to sort out (Need a channel named staff_support_requests)`)
+
+.addField('id', '@mentioneduser')
+
+.addField('year', 'shows year info')
+
+.addField('statistics')
+
+.addField('findusers', 'finds a discord user')
+
+.addField('contact', '[message]')
+
+.addField('help', 'shows commands')
+
+.addField('invite', 'posts bot invite and support server invite')
+
+.addField('botinfo', 'shows bot info')
+
+message.author.send(embed)
+
+
+
+var embed = new Discord.RichEmbed()
+
+.setAuthor(` | Commands`, `${bot.user.avatarURL}`)
+
+.setTitle("Server Owner/Admin")
+
+.setColor("RANDOM")
+
+.addField(`hackban`, 'ban a user by id')
+
+.addField('serverannouncement')
+
+.addField('announce', 'make a announcement')
+
+.addField('owner', 'server owner only for this. !owner @user- gives them server owner.')
+
+message.author.send(embed)
+
+
+
+var embed = new Discord.RichEmbed()
+
+.setAuthor(` | Commands`, `${bot.user.avatarURL}`)
+
+.setTitle("Moderation")
+
+.setColor("RANDOM")
+
+.addField(`ban (@mention) (Reason)`, `Manage Members permission needed also an incidents channel!`)
+
+.addField(`mute (@mention || User ID)`, `Mute Members permission needed!`)
+
+.addField(`unmute (@mention)`, `Mute Members permission needed!`)
+
+.addField(`kick (@mention) (Reason)`, `Manage Members permission needed!`)
+
+.addField('tempban (@mention) [REASON]')
+
+.addField('addrole', '[Name]')
+
+.addField('report', 'report a user to a admin')
+
+.addField('warn', 'warn a user')
+
+.addField('votekick', 'votekick a user')
+
+.addField('autorole', 'autorole is W.I.P')
+
+.addField('removerole', 'removes a role from a player')
+
+
+message.author.send(embed)
+
+  }
+
