@@ -56,4 +56,4 @@ client.on(`message`, async message =>{
     }
 })
 
-client.login(Put token here)
+client.login('Put token here')
