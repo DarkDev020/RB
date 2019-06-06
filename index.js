@@ -53,7 +53,7 @@ client.on(`message`, async message =>{
         commandFile.run(client, message, args, ops);
     } catch(e) {
         console.log(e.stack);
-    }
+    } 
 })
 
-client.login('Put token here')
+client.login('token')
